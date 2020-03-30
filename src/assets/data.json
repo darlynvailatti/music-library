@@ -1,0 +1,32 @@
+[
+
+    {
+        "id": 1,
+        "title": "Tsunami",
+        "artist": "Red Hot Chilli Peppers",
+        "genre": "Rock",
+        "album": "Liquid"
+    },
+    {
+        "id": 2,
+        "title": "Kung-fu fight",
+        "artist": "Khnow Fight",
+        "genre": "Pop",
+        "album": "Some Album"
+    },
+    {
+        "id": 3,
+        "title": "Remember me",
+        "artist": "The Cure",
+        "genre": "Rock",
+        "album": "Stone age"
+    },
+    {
+        "id": 4,
+        "title": "Lion of the king",
+        "artist": "Arthur Menthralianotion",
+        "genre": "Reggae",
+        "album": "The fortress cambrigde"
+    }
+
+]

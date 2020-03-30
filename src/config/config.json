@@ -1,0 +1,111 @@
+{
+    "name": "OpenSpotify",
+    "entities": [
+        {
+            "name": "music",
+            "label": "Music",
+            "resourcePath": "/music",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "Id",
+                    "type": "key"
+                },
+                {
+                    "name": "artist",
+                    "label": "Artist",
+                    "entity": "artist",
+                    "type": "entity"
+                },
+                {
+                    "name": "title",
+                    "label": "Title",
+                    "type": "text"
+                },
+                {
+                    "name": "album",
+                    "label": "Album",
+                    "entity": "album",
+                    "type": "entity"
+                },
+                {
+                    "name": "genre",
+                    "label": "Genre",
+                    "entity": "genre",
+                    "type": "entity"
+                }
+            ]
+        },
+
+        {
+            "name": "artist",
+            "label": "Artist",
+            "resourcePath": "/artist",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "Id",
+                    "type": "key"
+                },
+                {
+                    "name": "description",
+                    "label": "Description",
+                    "type": "text"
+                }
+            ]
+        },
+
+        {
+            "name": "album",
+            "label": "Album",
+            "resourcePath": "/album",
+            "fields": [
+                {
+                    "name": "id",
+                    "label": "Id",
+                    "type": "key"
+                },
+                {
+                    "name": "description",
+                    "label": "Description",
+                    "type": "text"
+                },
+                {
+                    "name": "musics",
+                    "label": "Musics",
+                    "type": "entity",
+                    "entity": "music",
+                    "colletion": true
+                }
+            ]
+        }
+
+    ],
+    "menuItems": [
+        {
+            "id": 0,
+            "label": "Home",
+            "page": "home",
+            "routePath": "/"
+        },
+        {
+            "id": 1,
+            "label" : "Musics",
+            "page": "musicsPage",
+            "routePath": "/musics"
+        },
+        {
+            "id": 2,
+            "label": "Favorites",
+            "page": "favoritesPage",
+            "routePath": "/favorites"
+        },
+        {   
+            "id": 3,
+            "label": "Playlists",
+            "page": "playlistsPage",
+            "routePath": "/playlists"
+        }
+
+    ]
+}
