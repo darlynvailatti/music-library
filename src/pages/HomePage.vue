@@ -1,6 +1,6 @@
 <template>
 
-    <v-container>
+    <div>
       <v-row no-gutters>
         <v-col>
           <Musics />
@@ -22,10 +22,6 @@
                   </v-list-item>
 
                   <v-card-actions>
-                    <PlaylistDialog
-                      button-activator-label="Nova"
-                      v-bind:button-activator-enabled="true"
-                    />
                   </v-card-actions>
                 </v-card>
               </v-card>
@@ -38,12 +34,11 @@
           </v-tabs>
         </v-col>
       </v-row>
-    </v-container>
+    </div>
 
 </template>
 
 <script>
-import PlaylistDialog from "@/components/PlaylistDialog.vue";
 import Playlists from "@/components/Playlists.vue";
 import Musics from "@/components/Musics.vue";
 import Favorites from "@/components/Favorites.vue";
@@ -52,7 +47,6 @@ export default {
   name: "home",
   components: {
     Musics,
-    PlaylistDialog,
     Playlists,
     Favorites
   },

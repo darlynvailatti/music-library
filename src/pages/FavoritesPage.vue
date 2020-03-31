@@ -1,7 +1,7 @@
 <template>
-  <v-card>
+ 
     <Favorites />
-  </v-card>
+
 </template>
 
 <script>

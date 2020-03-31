@@ -1,7 +1,5 @@
 <template>
-  <v-card>
-    <Musics />
-  </v-card>
+  <Musics />
 </template>
 
 <script>

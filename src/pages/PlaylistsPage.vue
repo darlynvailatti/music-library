@@ -1,23 +1,20 @@
 <template>
-    <v-card>
-        <Playlists />
-    </v-card>
+  <Playlists />
 </template>
 
 <script>
-import Playlists from '@/components/Playlists.vue';
+import Playlists from "@/components/Playlists.vue";
 
 export default {
-    name: "playlistsPage",
-    components: {
-        Playlists
-    },
-    data(){
-        return {};
-    }
-}
+  name: "playlistsPage",
+  components: {
+    Playlists
+  },
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style scoped>
-
 </style>

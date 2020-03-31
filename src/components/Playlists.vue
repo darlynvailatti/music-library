@@ -1,26 +1,34 @@
 <template>
-  <div>
+  <v-container class="ml-1">
+    <v-row>
+      <PlaylistFormDialog
+        ref="dialog"
+        button-activator-label="Nova"
+        v-bind:button-activator-enabled="true"
+      />
+    </v-row>
 
-      <v-data-table :headers="headersPlaylist" :items="getPlaylists">
-        <template v-slot:item.acoes="{ item }">
-          <v-icon small class="mr-2" @click="editPlaylist(item)">mdi-pencil</v-icon>
-          <v-icon small class="mr-2" @click="deletePlaylist(item)">mdi-delete</v-icon>
-        </template>
-      </v-data-table>
-
-      <PlaylistDialog ref="dialog" />
-
-  </div>
+    <v-row class="mt-4">
+      <v-card>
+        <v-data-table :headers="headersPlaylist" :items="getPlaylists">
+          <template v-slot:item.acoes="{ item }">
+            <v-icon small class="mr-2" @click="editPlaylist(item)">mdi-pencil</v-icon>
+            <v-icon small class="mr-2" @click="deletePlaylist(item)">mdi-delete</v-icon>
+          </template>
+        </v-data-table>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import PlaylistDialog from "@/components/PlaylistDialog.vue";
+import PlaylistFormDialog from "@/components/PlaylistFormDialog.vue";
 
 export default {
   name: "playlists",
   components: {
-    PlaylistDialog
+    PlaylistFormDialog
   },
   data() {
     return {
