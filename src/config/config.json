@@ -86,25 +86,29 @@
             "id": 0,
             "label": "Home",
             "page": "home",
-            "routePath": "/"
+            "routePath": "/",
+            "icon": "home"
         },
         {
             "id": 1,
             "label" : "Musics",
             "page": "musicsPage",
-            "routePath": "/musics"
+            "routePath": "/musics",
+            "icon": "music"
         },
         {
             "id": 2,
             "label": "Favorites",
             "page": "favoritesPage",
-            "routePath": "/favorites"
+            "routePath": "/favorites",
+            "icon": "star"
         },
         {   
             "id": 3,
             "label": "Playlists",
             "page": "playlistsPage",
-            "routePath": "/playlists"
+            "routePath": "/playlists",
+            "icon": "playlist-play"
         }
 
     ]

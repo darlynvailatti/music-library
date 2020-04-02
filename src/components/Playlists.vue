@@ -2,15 +2,16 @@
   <v-container class="ml-1">
     <v-row>
       <PlaylistFormDialog
-        ref="dialog"
-        button-activator-label="Nova"
-        v-bind:button-activator-enabled="true"
-      />
+        ref="dialog"/>
+      <v-btn
+        class="mt-7" absolute dark fab top small @click="newPlaylist()">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
     </v-row>
 
     <v-row class="mt-4">
-      <v-card>
-        <v-data-table :headers="headersPlaylist" :items="getPlaylists">
+      <v-card class="ml-3">
+        <v-data-table dense :headers="headersPlaylist" :items="getPlaylists">
           <template v-slot:item.acoes="{ item }">
             <v-icon small class="mr-2" @click="editPlaylist(item)">mdi-pencil</v-icon>
             <v-icon small class="mr-2" @click="deletePlaylist(item)">mdi-delete</v-icon>
@@ -42,12 +43,16 @@ export default {
     ...mapGetters(["getPlaylists"])
   },
   methods: {
+    newPlaylist(){
+      this.$refs.dialog.newPlaylist();
+    },
     deletePlaylist(playlist) {
       this.$store.dispatch("deletePlaylist", playlist);
     },
     editPlaylist(playlist) {
-      this.$refs.dialog.showDialog(playlist);
-    }
+      this.$refs.dialog.editPlaylist(playlist);
+    },
+
   }
 };
 </script>

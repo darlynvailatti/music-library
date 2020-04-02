@@ -1,9 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" width="500">
-    <template v-slot:activator="{ on }" v-if="buttonActivatorEnabled">
-      <v-btn color="red lighten-2" dark v-on="on">{{ buttonActivatorLabel }}</v-btn>
-    </template>
-
+  <v-dialog v-model="dialog" >
     <v-card>
       <v-tabs>
         <v-tab ripple>Playlist</v-tab>
@@ -63,7 +59,15 @@ export default {
     ...mapGetters(["getPlaylists"])
   },
   methods: {
-    removeMusicFromPlaylist() {},
+    newPlaylist(){
+      this.dialog = true;
+      this.playlist = {
+        descricao: "",
+      }
+    },
+    removeMusicFromPlaylist() {
+
+    },
     cancelar() {
       this.dialog = false;
     },
@@ -74,7 +78,7 @@ export default {
       this.dialog = false;
       this.playlist = this.defaultPlaylist();
     },
-    showDialog(playlist) {
+    editPlaylist(playlist) {
       this.dialog = true;
       this.playlist = playlist;
     },

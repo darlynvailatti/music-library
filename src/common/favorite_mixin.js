@@ -42,6 +42,9 @@ const FavoriteMixin = {
                     duration: 5000
                 });
             }
+        },
+        playMusic(music){
+            this.$store.dispatch('play', { audio: music });
         }
     }
 }
