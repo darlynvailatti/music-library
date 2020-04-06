@@ -24,6 +24,6 @@ config.menuItems.forEach((itemMenu) =>{
     });
 });
 
-const vueRouter = new VueRouter({routes,  mode: 'history'});
+const vueRouter = new VueRouter({routes,  mode: 'history', base: "music-library"});
 
 export default vueRouter;

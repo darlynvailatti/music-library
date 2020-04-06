@@ -12,14 +12,23 @@
         </v-btn>
 
         <v-btn
-          :class="isPlaying ? 'pulse mb-6 elevation-24' : 'mb-6 '"
+          v-if="isPlaying"
+          class="mb-6 pulse"
           style="z-index: 1"
-          @click="isAllowToPlay ? play() : isAllowToPause ? pause() : showMessagePlayerNotReadyToPlay()"
-          dark
-          fab
-        >
-          <v-icon>{{ isPlaying ? 'mdi-pause' : 'mdi-play' }}</v-icon>
+          @click="isAllowToPause ? pause() : null"
+          dark :fab="true">
+          <v-icon>mdi-pause</v-icon>
         </v-btn>
+
+        <v-btn
+          v-if="!isPlaying"
+          class="mb-6"
+          style="z-index: 1"
+          @click="isAllowToPlay ? play() : null"
+          dark :fab="true">
+          <v-icon>mdi-play</v-icon>
+        </v-btn>
+
 
         <v-btn style="z-index: 0" class="mt-2 ml-1" @click="next()" small dark fab>
           <v-icon>mdi-chevron-right</v-icon>
@@ -72,7 +81,16 @@ import PlayerMixin from "@/common/player_mixin.js";
 export default {
   mixins: [PlayerMixin],
   components: {},
-  computed: {},
+  computed: {
+
+    getButtonPlayPauseIcon(){
+      if(this.isPlaying)
+        return 'mdi-pause';
+      
+      return 'mdi-play';
+    }
+
+  },
   methods: {},
   created() {
     console.log(this);
@@ -82,8 +100,6 @@ export default {
 
 <style scoped>
 .pulse {
-  width: 23px;
-  height: 23px;
   border-radius: 50%;
   background: #05fce7;
   box-shadow: 0 0 0 rgba(8, 29, 219, 0.904);
