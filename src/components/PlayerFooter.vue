@@ -24,7 +24,7 @@
           v-if="!isPlaying"
           class="mb-6"
           style="z-index: 1"
-          @click="isAllowToPlay ? play() : null"
+          @click="isAllowToPlay ? play() : showMessagePlayerNotReadyToPlay()"
           dark :fab="true">
           <v-icon>mdi-play</v-icon>
         </v-btn>
