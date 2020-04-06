@@ -25,18 +25,18 @@
     </v-content>
 
     <v-app-bar app bottom clipped-left elevation="5">
-      <PlayerFooter />  
+      <PlayerFooter />
     </v-app-bar>
   </v-app>
 </template>
 
 <script>
 import config from "@/config/config.json";
-import PlayerFooter from '@/components/PlayerFooter.vue';
+import PlayerFooter from "@/components/PlayerFooter.vue";
 
 export default {
   components: {
-    PlayerFooter,
+    PlayerFooter
   },
   created() {
     this.applicationName = config.name;
@@ -54,7 +54,6 @@ export default {
       items: [],
       drawer: false
     };
-  },
-
+  }
 };
 </script>

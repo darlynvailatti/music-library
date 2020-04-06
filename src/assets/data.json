@@ -5,28 +5,32 @@
         "title": "Tsunami",
         "artist": "Red Hot Chilli Peppers",
         "genre": "Rock",
-        "album": "Liquid"
+        "album": "Liquid",
+        "audioSource": "https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3"
     },
     {
         "id": 2,
         "title": "Kung-fu fight",
         "artist": "Khnow Fight",
         "genre": "Pop",
-        "album": "Some Album"
+        "album": "Some Album",
+        "audioSource": "http://soundbible.com/mp3/Record_Player_Static-Mike_Koenig-2128770862.mp3"
     },
     {
         "id": 3,
         "title": "Remember me",
         "artist": "The Cure",
         "genre": "Rock",
-        "album": "Stone age"
+        "album": "Stone age",
+        "audioSource": "https://archive.org/download/digitaldiamonds072/%5BDigitalDiamonds072%5D_A1_Javiis_-_Reality.mp3"
     },
     {
         "id": 4,
         "title": "Lion of the king",
         "artist": "Arthur Menthralianotion",
         "genre": "Reggae",
-        "album": "The fortress cambrigde"
+        "album": "The fortress cambrigde",
+        "audioSource": "https://archive.org/download/digitaldiamonds072/%5BDigitalDiamonds072%5D_B1_Javiis_-_Reality_%28Monococ_Remix%29.mp3"
     }
 
 ]

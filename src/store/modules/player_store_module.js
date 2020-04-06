@@ -1,97 +1,165 @@
 import MusicPlayer from '@/store/modules/impl/player.js';
+import { Player } from '@/constants/Player.js';
 
 const musicPlayerStoreModule = {
     state: {
-        player: new MusicPlayer()
+        player: new MusicPlayer(),
+        currentTime: 0,
+        duration: 0,
     },
     mutations: {
-        play(state, payload) {
-            console.log(payload);
-            let audio = payload.audio;
-            state.player.play(audio);
+
+        [Player.methods.ADD_TO_PLAYER_AND_PLAY](state, payload){
+            console.log('Start fetch...');
+            state.player.addToPlayerAndPlay(payload.audio);
+            console.log('End fetch...');
         },
 
-        pause(state) {
+        [Player.methods.PLAY](state) {
+            state.player.play();
+        },
+
+        [Player.methods.PAUSE](state) {
             state.player.pause();
         },
 
-        reset(state) {
+        [Player.methods.RESET](state) {
             state.player.reset();
         },
 
-        previous(state) {
-            state.player.previously();
+        [Player.methods.PREVIOUS](state) {
+            state.player.previous();
         },
 
-        next(state) {
+        [Player.methods.NEXT](state) {
             state.player.next();
-        }
+        },
+
+        [Player.methods.SET_ENDED_EVENT_LISTENER](state, callBack) {
+            state.player.setEndedEventListener(callBack);
+        },
+
+        [Player.methods.SET_UPDATE_TIME_EVENT_LISTENER](state, callBack) {
+            state.player.setUpdateTimeEventListener(callBack);
+        },
+
+        [Player.methods.UPDATE_CURRENT_TIME](state){
+            state.currentTime = state.player.getCurrentTime();
+        },
+
+        [Player.methods.UPDATE_DURATION](state){
+            state.duration = state.player.getDuration();
+        },
     },
 
     actions: {
 
-        play(context, payload) {
-            context.commit('play',payload);
+        [Player.methods.ADD_TO_PLAYER_AND_PLAY](context, payload){
+            context.commit(Player.methods.ADD_TO_PLAYER_AND_PLAY, payload);
+            context.commit(Player.methods.UPDATE_DURATION);
         },
 
-        pause(context) {
+        [Player.methods.PLAY](context) {
+            console.log('Playing!');
+            context.commit(Player.methods.PLAY);
+        },
+
+        [Player.methods.PAUSE](context) {
             console.log('Pausing!');
-            context.commit('pause');
+            context.commit(Player.methods.PAUSE);
         },
 
-        reset(context) {
+        [Player.methods.RESET](context) {
             console.log('Reseting!');
-            context.commit('reset');
+            context.commit(Player.methods.RESET);
         },
 
-        previous(context) {
+        [Player.methods.PREVIOUS](context) {
             console.log('Previousing');
-            context.commit('previous');
+            context.commit(Player.methods.PREVIOUS);
+            context.commit(Player.methods.UPDATE_DURATION);
+            context.commit(Player.methods.UPDATE_CURRENT_TIME);
         },
 
-        next(context) {
+        [Player.methods.NEXT](context) {
             console.log('Next');
-            context.commit('next');
-        }
+            context.commit(Player.methods.NEXT);
+            context.commit(Player.methods.UPDATE_DURATION);
+            context.commit(Player.methods.UPDATE_CURRENT_TIME);
+        },
+
+        [Player.methods.SET_ENDED_EVENT_LISTENER](context, callBack) {
+            context.commit(Player.methods.SET_ENDED_EVENT_LISTENER, callBack);
+        },
+
+        [Player.methods.SET_UPDATE_TIME_EVENT_LISTENER](context, callBack) {
+            context.commit(Player.methods.SET_UPDATE_TIME_EVENT_LISTENER, callBack);
+        },
+
+        [Player.methods.UPDATE_CURRENT_TIME](context){
+            context.commit(Player.methods.UPDATE_CURRENT_TIME);
+        },
+
+        [Player.methods.UPDATE_DURATION](context){
+            context.commit(Player.methods.UPDATE_DURATION);
+        },
 
     },
+
     getters: {
-        isAllowToPlay: (state) => {
+        [Player.getters.IS_ALLOW_TO_PLAY]: (state) => {
             return state.player.canPlay();
         },
 
-        isAllowToReset: (state) => {
+        [Player.getters.IS_ALLOW_TO_RESET]: (state) => {
             return state.player.canReset();
         },
 
-        isAllowToPause: (state) => {
+        [Player.getters.IS_ALLOW_TO_PAUSE]: (state) => {
             return state.player.canPause();
         },
 
-        getCurrentAudio: (state) => {
+        [Player.getters.GET_CURRENT_AUDIO]: (state) => {
             return state.player.currentAudio;
         },
 
-        getCurrentState: (state) => {
-            console.log(state);
-            return state.player.getCurrentState;
-        },
-
-        getPlayer: (state) => {
-            return state.player;
-        },
-
-        isPlaying: (state) => {
+        [Player.getters.IS_PLAYING]: (state) => {
             return state.player.isPlaying();
         },
 
-        isPlayingThisAudio: (state) => (audio) => {
-            if(audio == null) return false;
+        [Player.getters.IS_PAUSED]: (state) => {
+            return state.player.isPaused();
+        },
+
+        [Player.getters.IS_LOADING]: (state) => {
+            return state.player.isLoading();
+        },
+
+        [Player.getters.IS_NONE_AUDIO]: (state) => {
+            return state.player.isNoneAudio();
+        },
+
+        [Player.getters.IS_PLAYING_THIS_AUDIO]: (state) => (audio) => {
             return state.player.isPlayingThisAudio(audio);
+        },
+
+        [Player.getters.IS_CURRENT_AUDIO]: (state) => (audio) => {
+            return state.player.isCurrentAudio(audio);
+        },
+
+        [Player.getters.GET_PLAYED]: (state) => {
+            return state.player.getPlayed();
+        },
+
+        [Player.getters.GET_DURATION]: (state) =>{
+            return state.duration;
+        },
+
+        [Player.getters.GET_CURRENT_TIME]: (state) =>{
+            return state.currentTime;
         }
+
     }
 }
-
-
 
 export default musicPlayerStoreModule;

@@ -1,13 +1,18 @@
 import Vue from 'vue'
-
 import App from './App.vue'
-import vuetify from './plugins/vuetify';
 
+// Third-Party
+import vuetify from './plugins/vuetify';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-default.css';
 
+// Mixins
+
+
+//Vue Modules
 import store from '@/store'
 import router from '@/router'
+
 
 Vue.use(VueToast);
 
